@@ -1,0 +1,14 @@
+﻿<Window x:Class="Windows10ClearIconCache.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Windows10ClearIconCache"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
+    <Grid>
+        <TextBox x:Name="txtLog" RenderTransformOrigin="0.826,2.175" Margin="10,10,10,45" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+        <Button Content="Clear Icon Cache" RenderTransformOrigin="1.955,14.394" Margin="10,0,0,10" Click="Button_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="124"/>
+
+    </Grid>
+</Window>
