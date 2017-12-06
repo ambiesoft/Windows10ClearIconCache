@@ -1,0 +1,29 @@
+{
+	"name": "Windows10ClearIconCache",
+	"solution": "Windows10ClearIconCache.sln",
+	"targetproject": "Windows10ClearIconCache",
+	"configuration": "Release",
+    "targets": [
+            {
+            	"setoutdirforbuild": true,
+                "outdir" : "C:/Linkout/Windows10ClearIconCache/",
+                "platform":"Any CPU"
+            }
+    ],
+    "archivedir": "C:/Linkout/",
+    "remotedir": "http://ambiesoft.fam.cx/ffdav/uploads/Windows10ClearIconCache/",
+    "remotesha1" : "http://ambiesoft.fam.cx/ffdav/uploads/getSha1.php?file=Windows10ClearIconCache/{}",
+    
+    "TotalFileCount": 4,
+    
+    "ShouldNotBeFiles": [
+    ],
+    
+    "ShouldBeFiles": [
+    ],
+    
+    "ShouldBeOneOfThem": [],
+    
+    "obtainverfrom": "History.txt",
+    "obtainverregex": "\\d+\\.\\d+"
+}

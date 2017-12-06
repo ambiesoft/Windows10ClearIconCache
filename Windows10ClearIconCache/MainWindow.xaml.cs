@@ -50,12 +50,21 @@ namespace Windows10ClearIconCache
                 return true;
             foreach (Process pro in Process.GetProcessesByName("explorer"))
             {
-                pro.Kill();
+                try
+                {
+                    pro.Kill();
+                    if (MyDeleteFile2(fullpath))
+                        return true;
+                }
+                catch
+                { }
             }
             return MyDeleteFile2(fullpath);
         }
         void MyDeleteFile(string fullpath)
         {
+            if (!File.Exists(fullpath))
+                return;
             bool ok = MyDeleteFile1(fullpath);
             Log(string.Format("Delete {0}: {1}",
                 ok ? "OK" : "NG", fullpath));
@@ -80,15 +89,19 @@ namespace Windows10ClearIconCache
 
             string pathLocal = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
-            string cacheDb = System.IO.Path.Combine(pathLocal, "IconCache.db");
-            MyDeleteFile(cacheDb);
+            if (chkIconCacheDB.IsChecked ?? false)
+            {
+                string cacheDb = System.IO.Path.Combine(pathLocal, "IconCache.db");
+                MyDeleteFile(cacheDb);
+            }
 
             string cacheDir = System.IO.Path.Combine(pathLocal, @"Microsoft\Windows\Explorer");
-
             DirectoryInfo di = new DirectoryInfo(cacheDir);
 
-            DeleteCache(di, "iconcache_*.db");
-            DeleteCache(di, "thumbcache_*.db");
+            if (chkIconcacheALLDB.IsChecked ?? false)
+                DeleteCache(di, "iconcache_*.db");
+            if (chkThumbcacheALLDB.IsChecked ?? false)
+                DeleteCache(di, "thumbcache_*.db");
         }
     }
 }

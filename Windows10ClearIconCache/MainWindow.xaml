@@ -7,8 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
-        <TextBox x:Name="txtLog" RenderTransformOrigin="0.826,2.175" Margin="10,10,10,45" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
-        <Button Content="Clear Icon Cache" RenderTransformOrigin="1.955,14.394" Margin="10,0,0,10" Click="Button_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="124"/>
+        <TextBox x:Name="txtLog" RenderTransformOrigin="0.826,2.175" Margin="10,10,10,87" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+        <Button Content="Clear Icon Cache" RenderTransformOrigin="1.955,14.394" Margin="0,0,10,10" Click="Button_Click" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="124"/>
+        <CheckBox x:Name="chkIconCacheDB" Content="IconCache.db" HorizontalAlignment="Left" Margin="10,0,0,67" Height="15" VerticalAlignment="Bottom"/>
+        <CheckBox x:Name="chkIconcacheALLDB" Content="iconcache_ALL_db" HorizontalAlignment="Left" Margin="10,0,0,47" Height="15" VerticalAlignment="Bottom"/>
+        <CheckBox x:Name="chkThumbcacheALLDB" Content="thumbcache_ALL_db" HorizontalAlignment="Left" Margin="10,0,0,27" Height="15" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

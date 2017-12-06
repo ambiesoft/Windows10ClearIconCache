@@ -90,8 +90,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copyv "$(SolutionDir)History.txt" "$(TargetDir)"
+copyv "$(SolutionDir)README.md" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
