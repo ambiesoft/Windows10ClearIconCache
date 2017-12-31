@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace Windows10ClearIconCache
 {
@@ -31,6 +33,12 @@ namespace Windows10ClearIconCache
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Title = Assembly.GetEntryAssembly().GetName().Name;
+            if (IsAdministrator())
+            {
+                this.Title += " ";
+                this.Title += Properties.Resources.Administrator;
+                btnRunAsAdministrator.Visibility = Visibility.Hidden;
+            }
         }
 
         bool MyDeleteFile2(string fullpath)
@@ -83,7 +91,13 @@ namespace Windows10ClearIconCache
                 MyDeleteFile(fi.FullName);
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public static bool IsAdministrator()
+        {
+            var identity = WindowsIdentity.GetCurrent();
+            var principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+        private void btnClearIconCache_Click(object sender, RoutedEventArgs e)
         {
             txtLog.Clear();
 
@@ -102,6 +116,60 @@ namespace Windows10ClearIconCache
                 DeleteCache(di, "iconcache_*.db");
             if (chkThumbcacheALLDB.IsChecked ?? false)
                 DeleteCache(di, "thumbcache_*.db");
+        }
+
+        public static string ProductName
+        {
+            get
+            {
+                AssemblyProductAttribute myProduct =
+                    (AssemblyProductAttribute)AssemblyProductAttribute.GetCustomAttribute(Assembly.GetExecutingAssembly(),
+                    typeof(AssemblyProductAttribute));
+                return myProduct.Product;
+            }
+        }
+        public static string ProductVersion
+        {
+            get
+            {
+                return Assembly.GetEntryAssembly().GetName().Version.ToString();
+            }
+        }
+        private void btnRunAsAdministrator_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = Assembly.GetExecutingAssembly().Location;
+            psi.Verb = "runas";
+            try
+            {
+                Process.Start(psi);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                    ProductName,
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Exclamation);
+            }
+        }
+
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder message = new StringBuilder();
+            message.Append(ProductName);
+            message.Append(" version");
+            message.Append(ProductVersion);
+            message.AppendLine();
+            message.AppendLine();
+            message.Append("copyright 2018 Ambiesoft");
+            message.AppendLine();
+            message.Append("http://ambiesoft.fam.cx/");
+            MessageBox.Show(
+                message.ToString(),
+                ProductName,
+                MessageBoxButton.OK,
+                MessageBoxImage.Information);
         }
     }
 }
