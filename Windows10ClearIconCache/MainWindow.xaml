@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Windows10ClearIconCache"
         mc:Ignorable="d"
-        Title="MainWindow" Height="343.862" Width="515" Loaded="Window_Loaded">
+        Title="MainWindow" Height="362.016" Width="515" Loaded="Window_Loaded">
     <Grid>
-        <TextBox x:Name="txtLog" RenderTransformOrigin="0.826,2.175" Margin="10,10,10,114" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
-        <CheckBox x:Name="chkIconCacheDB" Content="IconCache.db" HorizontalAlignment="Left" Margin="10,0,0,92" Height="15" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="chkIconcacheALLDB" Content="iconcache_ALL_db" HorizontalAlignment="Left" Margin="10,0,0,72" Height="15" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="chkThumbcacheALLDB" Content="thumbcache_ALL_db" HorizontalAlignment="Left" Margin="10,0,0,52" Height="15" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txtLog" RenderTransformOrigin="0.826,2.175" Margin="10,10,10,125" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+        <CheckBox x:Name="chkIconCacheDB" Content="IconCache.db" HorizontalAlignment="Left" Margin="10,0,0,103" Height="15" VerticalAlignment="Bottom"/>
+        <CheckBox x:Name="chkIconcacheALLDB" Content="iconcache_ALL_db" HorizontalAlignment="Left" Margin="10,0,0,83" Height="15" VerticalAlignment="Bottom"/>
+        <CheckBox x:Name="chkThumbcacheALLDB" Content="thumbcache_ALL_db" HorizontalAlignment="Left" Margin="10,0,0,63" Height="15" VerticalAlignment="Bottom"/>
         <Button x:Name="btnClearIconCache" Content="Clear Icon Cache" RenderTransformOrigin="1.955,14.394" Margin="0,0,10,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="124" Click="btnClearIconCache_Click" IsDefault="True"/>
-        <Button x:Name="btnRunAsAdministrator" Content="Run as Administrator" Margin="0,0,10,79" Click="btnRunAsAdministrator_Click" HorizontalAlignment="Right" Width="124" Height="26" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnRunAsAdministrator" Content="Run as Administrator" Margin="0,0,10,92" Click="btnRunAsAdministrator_Click" HorizontalAlignment="Right" Width="124" Height="26" VerticalAlignment="Bottom"/>
         <Button x:Name="btnAbout" Content="About" VerticalAlignment="Bottom" Margin="10,0,0,10" Height="26" HorizontalAlignment="Left" Width="124" Click="btnAbout_Click"/>
+        <Button x:Name="btnExplorer" Content="Run Explorer" Margin="0,0,10,61" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="124" Click="btnExplorer_Click"/>
 
     </Grid>
 </Window>

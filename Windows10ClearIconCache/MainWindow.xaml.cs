@@ -171,5 +171,21 @@ namespace Windows10ClearIconCache
                 MessageBoxButton.OK,
                 MessageBoxImage.Information);
         }
+
+        private void btnExplorer_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Process.Start("explorer.exe");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message.ToString(),
+                    ProductName,
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Exclamation);
+            }
+        }
     }
 }
