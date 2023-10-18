@@ -11,8 +11,8 @@
             }
     ],
     "archivedir": "C:/Linkout/",
-    "remotedir": "http://ambiesoft.fam.cx/ffdav/uploads/Windows10ClearIconCache/",
-    "remotesha1" : "http://ambiesoft.fam.cx/ffdav/uploads/getSha1.php?file=Windows10ClearIconCache/{}",
+    "remotedir": "https://ambiesoft.com/ffdav/uploads/Windows10ClearIconCache/",
+    "remotesha1" : "https://ambiesoft.com/ffdav/uploads/getSha1.php?file=Windows10ClearIconCache/{}",
     
     "TotalFileCount": 4,
     
