@@ -74,9 +74,8 @@ namespace Windows10ClearIconCache
             if (!File.Exists(fullpath))
                 return;
             bool ok = MyDeleteFile1(fullpath);
-            Log(string.Format("Delete {0}: {1}",
-                ok ? "OK" : "NG", fullpath));
-
+            Log(ok ? string.Format("Deleted: {0}", fullpath) :
+                string.Format("Delete Failed: {0}", fullpath));
         }
         void Log(string text)
         {
@@ -164,7 +163,7 @@ namespace Windows10ClearIconCache
             message.AppendLine();
             message.Append("copyright 2018 Ambiesoft");
             message.AppendLine();
-            message.Append("http://ambiesoft.fam.cx/");
+            message.Append("https://ambiesoft.com/");
             MessageBox.Show(
                 message.ToString(),
                 ProductName,
